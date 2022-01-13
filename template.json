@@ -1,0 +1,22 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "A template is for creating lambda from s3 buckets",
+    "Resources": {
+        "LambdaResource": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "cicdfunc",
+
+                "Code": {
+        		"S3Bucket" : "zipdemo1",
+        		"S3Key" : "code.zip"
+      		},
+                "Description": "Used to run lambda jobs",
+                "Handler": "lambda_function.lambda_handler",
+                "Role": "arn:aws:iam::656141771629:role/service-role/miniproject-role-aezbhsid",
+                "Runtime": "python3.9",
+                "Timeout": 120
+            }
+        }
+  }
+}
